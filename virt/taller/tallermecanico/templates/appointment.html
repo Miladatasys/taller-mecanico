@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <form action="{% url 'appointment' %}" method="post">
+        {% csrf_token %}
+        <!-- Form fields here -->
+        <div class="form-group">Nombre</label>
+            <input type="text" class="form-control" id="id_visitor_name" name="visitor_name">
+        </div>
+        <div class="form-group">
+            <label for="id_visitor_email">Email</label>
+            <input type="email" class="form-control" id="id_visitor_email" name="visitor_email">
+        </div>
+        <div class="form-group">
+            <label for="id_visitor_phone">Celular</label>
+            <input type="text" class="form-control" id="id_visitor_phone" name="visitor_phone">
+        </div>
+        <div class="form-group">
+            <label for="id_checkin">Día de entrada</label>
+            <input type="date" class="form-control" id="id_checkin" name="checkin">
+        </div>
+        <div class="form-group">
+            <label for="id_checkout">Día de salida</label>
+            <input type="date" class="form-control" id="id_checkout" name="checkout">
+        </div>
+        <div class="form-group">
+            <label for="id_visitor_message">Mensaje</label>
+            <textarea class="form-control" id="id_visitor_message" name="visitor_message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="redirectToHome()">Reserva</button>
+
+<script>
+function redirectToHome() {
+    window.location.href = "home.html";
+}
+</script>
+        <br>
+    </form>
+    <br>
+</div>
+<br>
+<br>
+
+<!-- Include Bootstrap CSS and JavaScript files -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+{% endblock %}
